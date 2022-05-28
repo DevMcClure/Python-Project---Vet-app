@@ -2,3 +2,43 @@ from db.run_sql import run_sql
 
 from models.animal import Animal
 from models.vet import Vet
+
+
+
+def save(vet):
+    sql = "INSERT INTO vets (first_name, second_name) VALUES(?,?) RETURNING *"
+    values = [vet.first_name, vet.second_name]
+    results = run_sql(sql, values)
+    id = results[0]['id']
+    vet.id = id
+    return vet
+
+
+
+def select_all():
+    vets = []
+
+    sql = "SELECT * FROM vets"
+    results = run_sql(sql)
+
+    for row in results:
+        vet = Vet(row['first_name'], row['second_name'], row['id'])
+        vets.append(vet)
+    return vets    
+
+
+
+def select(id):
+    vet = None
+    sql = "SELECT * FROM vets WHERE id = ?"
+    values = [id]
+    result = run_sql(sql, values)[0] 
+
+    if result is not None:
+        vet = Vet(result['first_name'], result['second_name'], result['id'])
+    return vet    
+
+
+def delete_all():
+    sql = "DELETE FROM vets"
+    run_sql(sql)    
