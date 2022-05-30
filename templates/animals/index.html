@@ -1,9 +1,20 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h1>{{vet.first_name}}</h1>
+{% for animal in all_animals %}
+    <div class="animal">
+        <div class = "content">
+           {{animal.animal_name}}
+           <div class="Vet">
+               <a href="/vets/edit">{{animal.vet.first_name}} {{animal.vet.second_name}}</a>
+           </div> 
+
+
+        </div>
+    </div>
 
 
 
+{% endfor %}    
 
 {% endblock %}

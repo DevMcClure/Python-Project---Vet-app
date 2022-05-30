@@ -31,17 +31,16 @@ def select_all():
         animal = Animal(row['animal_name'], vet, row['date_of_birth'], row['animal_type'], row['owner_contact'], row['treatment_notes'], animal_assigned, row['id'])
         animals.append(animal)
     return animals    
-    
-
-
-
-
-
-
-
-
-
 
 def delete_all():
     sql = "DELETE FROM animals"
     run_sql(sql)   
+
+
+
+def update(animal):
+    sql = "UPDATE animals SET(animal_name, vet_id, date_of_birth, animal_type, owner_contact, treatment_notes, animal_assigned) = (?, ?, ?, ?, ?, ?, ?) WHERE id = ?"
+    values = [animal.animal_name, animal.vet_id, animal.date_of_birth, animal.animal_type, animal.owner_contact, animal.treatment_notes, animal.animal_assigned, animal.id]
+    run_sql(sql, values)
+
+

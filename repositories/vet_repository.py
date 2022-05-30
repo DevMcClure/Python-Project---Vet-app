@@ -41,4 +41,21 @@ def select(id):
 
 def delete_all():
     sql = "DELETE FROM vets"
-    run_sql(sql)    
+    run_sql(sql)
+
+
+
+
+def animals(vet):
+    animals = []
+
+    sql = "SELECT * FROM animals WHERE vet_id = ?"
+    values = [vet.id]
+    results = run_sql(sql, values)
+
+    for row in results:
+        animal = Animal(row['animal_name'], row['vet_id'], row['date_of_birth'], row['animal_type'], row['owner_contact'], row['treatment_notes'], ['animal_assigned'], ['id'] )
+        animals.append(animal)
+    return animals    
+
+    
