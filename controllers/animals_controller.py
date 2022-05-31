@@ -38,4 +38,5 @@ def delete_animal(id):
 @animals_blueprint.route("/animal/<id>/edit", methods=['GET'])
 def edit_animal(id):
     animals = animal_repository.select(id)
-    return render_template("animals/edit.html", animals = animals)   
+    vets = animal_repository.select_all()
+    return render_template("animals/edit.html", animals = animals, all_vets= vets)   
