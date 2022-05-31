@@ -1,4 +1,3 @@
-from atexit import register
 from flask import Flask, render_template, request, redirect
 from flask import Blueprint
 from repositories import animal_repository
@@ -37,6 +36,6 @@ def delete_animal(id):
 
 @animals_blueprint.route("/animal/<id>/edit", methods=['GET'])
 def edit_animal(id):
-    animals = animal_repository.select(id)
-    vets = animal_repository.select_all()
-    return render_template("animals/edit.html", animals = animals, all_vets= vets)   
+    animal = animal_repository.select(id)
+    vets = vet_repository.select_all()
+    return render_template("animals/edit.html", animal = animal, all_vets= vets)   
