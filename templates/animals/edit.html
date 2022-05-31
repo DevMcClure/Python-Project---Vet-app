@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-<form action="/animal/{{animal.id}}/info" method="post">
+<form action="/animal/{{animal.id}}/edit" method="post">
   <div>
     <label for="animal_name">Pet Name:</label>
     <input type="text" id="animal_name" name="animal_name" value="{{animal.animal_name}}" required autofocus>
@@ -34,11 +34,11 @@
 
 
   <div>
-    <label for="Vet">User:</label>
+    <label for="Vet">Vet:</label>
     <select id="Vet" name="vet_id">
-      {% for user in all_vets %}
+      {% for vet in all_vets %}
         <option value="{{ vet.id }}"
-          {% if animal.vet.id== vet.id %} selected="selected"{% endif %}>
+          {% if animal.vet.id == vet.id %} selected="selected"{% endif %}>
           {{ vet.first_name }} {{vet.second_name}}
         </option>
       {% endfor %}

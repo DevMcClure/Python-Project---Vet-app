@@ -22,5 +22,5 @@ CREATE TABLE animals (
     animal_assigned BOOLEAN,
     vet_id INTEGER NOT NULL,
         FOREIGN KEY (vet_id)
-            REFERENCES vets(id)
+            REFERENCES vets(id) ON DELETE CASCADE
 );

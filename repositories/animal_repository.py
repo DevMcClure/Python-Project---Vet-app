@@ -42,7 +42,7 @@ def select(id):
 
     if result is not None:
         vet = vet_repository.select(result['vet_id'])
-        animal = Animal(result['animal_name'], vet, result['date_of_birth'], result['animal_type'], result['owner_contact'], result['treatment_notes'], result['id'])
+        animal = Animal(result['animal_name'], vet, result['date_of_birth'], result['animal_type'], result['owner_contact'], result['treatment_notes'], result['animal_assigned'], result['id'])
     return animal    
         
 

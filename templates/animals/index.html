@@ -4,9 +4,9 @@
 {% for animal in all_animals %}
     <div class="animal">
         <div class = "content">
-            <a href="/animal/{{animal.id}}/info">Animal:{{animal.animal_name}}</a>
+            <a href="/animal/{{animal.id}}/info">Pet Name: {{animal.animal_name}}</a>
            <div class="Vet">
-               <p> Vet: {{animal.vet.first_name}} {{animal.vet.second_name}}</p>
+               <p> Assigned Vet: Dr. {{animal.vet.first_name}} {{animal.vet.second_name}}</p>
            </div> 
            <div class="buttons">
 

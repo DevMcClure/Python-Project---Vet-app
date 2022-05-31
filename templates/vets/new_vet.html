@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+
+<form action="/vets" method="post">
+
+    <div>
+        <label for="first_name">First Name</label>
+        <input type="text" id="first_name" 
+        name="first_name" placeholder="First Name"
+        required autofocus>
+    </div>
+
+    <div>
+        <label for="second_name">Second Name</label>
+        <input type="text" id="second_name"
+        name="second_name" placeholder="Second Name" required>
+    </div>
+
+  
+
+
+    <button type="submit">Add Vet</button>
+
+
+</form>
+
+{% endblock %}

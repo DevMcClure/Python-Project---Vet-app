@@ -44,6 +44,12 @@ def delete_all():
     run_sql(sql)
 
 
+def delete(id):
+    sql = "DELETE  FROM vets WHERE id = ?"
+    values = [id]
+    run_sql(sql, values)    
+
+
 
 
 def animals(vet):
@@ -57,5 +63,10 @@ def animals(vet):
         animal = Animal(row['animal_name'], row['vet_id'], row['date_of_birth'], row['animal_type'], row['owner_contact'], row['treatment_notes'], ['animal_assigned'], ['id'] )
         animals.append(animal)
     return animals    
+
+
+
+# in the vet delete, use the animals"vet function" to get all animals for that vet. then update those animals so that their vet = None.
+# then delete the Vet    
 
     
