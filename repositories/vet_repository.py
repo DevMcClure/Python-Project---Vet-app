@@ -67,6 +67,6 @@ def animals(vet):
 
 
 # in the vet delete, use the animals"vet function" to get all animals for that vet. then update those animals so that their vet = None.
-# then delete the Vet    
+# then delete the Vet so the Vet wont delete the animals with it.     
 
     
