@@ -30,11 +30,32 @@ def select_all():
         vet = vet_repository.select(row['vet_id'])
         animal = Animal(row['animal_name'], vet, row['date_of_birth'], row['animal_type'], row['owner_contact'], row['treatment_notes'], animal_assigned, row['id'])
         animals.append(animal)
-    return animals    
+    return animals  
+
+
+def select(id):
+    animal = None 
+    sql = "SELECT * FROM animals WHERE id = ?"
+    values = [id]
+    result = run_sql(sql, values)[0]
+
+
+    if result is not None:
+        vet = vet_repository.select(result['vet_id'])
+        animal = Animal(result['animal_name'], vet, result['date_of_birth'], result['animal_type'], result['owner_contact'], result['treatment_notes'], result['id'])
+    return animal    
+        
+
 
 def delete_all():
     sql = "DELETE FROM animals"
     run_sql(sql)   
+
+
+def delete(id):
+    sql = "DELETE  FROM animals WHERE id = ?"
+    values = [id]
+    run_sql(sql, values)
 
 
 

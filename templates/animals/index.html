@@ -4,12 +4,17 @@
 {% for animal in all_animals %}
     <div class="animal">
         <div class = "content">
-           {{animal.animal_name}}
+            <a href="/animal/info/{{animal.id}}">Animal:{{animal.animal_name}}</a>
            <div class="Vet">
-               <a href="/vets/edit">{{animal.vet.first_name}} {{animal.vet.second_name}}</a>
+               <p> Vet: {{animal.vet.first_name}} {{animal.vet.second_name}}</p>
            </div> 
+           <div class="buttons">
 
-
+            <form class="delete-form" action="/animal/{{animal.id}}/delete"
+            method="POST">
+              <button class="trash-button"><i class="fa fa-trash-o fa-3x"
+              style="color:red" aria-hidden="true"></i></button>
+            </form>
         </div>
     </div>
 
