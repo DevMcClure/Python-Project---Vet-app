@@ -17,11 +17,11 @@ def animals():
 
 @animals_blueprint.route("/register/animal", methods= ['Get'])
 def register_animals():
-    register_animal = animal_repository.select_all()
-    return render_template("animals/register_animal.html", all_register_animals = register_animal)
+    animal = animal_repository.select_all()
+    return render_template("animals/register_animal.html", all_vets = animal)
 
 
-@animals_blueprint.route("/animal/info/<id>", methods=['GET'])
+@animals_blueprint.route("/animal/<id>/info", methods=['GET'])
 def animal_info(id):
     animal= animal_repository.select(id)
     return render_template("animals/animal_info.html", animal = animal)

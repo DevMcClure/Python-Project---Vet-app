@@ -19,6 +19,8 @@ vet_repository.save(vet2)
 vet3 = Vet("Not", "Assigned")
 vet_repository.save(vet3)
 
+animal_repository.select_all()
+vet_repository.select_all()
 
 
 
