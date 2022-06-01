@@ -15,7 +15,7 @@
 
     <div>
         <label for="date_of_birth">D.O.B</label>
-        <input type="text" id="date_of_birth"
+        <input type="date" id="date_of_birth"
         name="date_of_birth" placeholder="D.O.B" required>
     </div>
 
@@ -49,6 +49,14 @@
             <option value="{{vet.id}}">{{vet.first_name}} {{vet.second_name}}</option>
             {% endfor %}
             
+        </select>
+    </div>
+
+    <div>
+        <label for="animal_assigned">Annimal Assigned</label>
+        <select id="animal_assigned" name="animal_assigned">
+            <option value="1">True</option>
+            <option value="0">False</option>
         </select>
     </div>
 

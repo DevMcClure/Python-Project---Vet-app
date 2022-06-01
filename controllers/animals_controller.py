@@ -71,12 +71,12 @@ def delete_animal(id):
 def edit_animal(id):
     animal = animal_repository.select(id)
     vets = vet_repository.select_all()
-    return render_template('/animals/edit.html', animal = animal, all_vets= vets)   
+    return render_template("/animals/edit.html", animal = animal, all_vets= vets)   
 
 # UPDATE
 # Not using PUT due to HTML only using POST or GET '/animals/<id>'
 
-@animals_blueprint.route("/animals/<id>", methods=['POST'])
+@animals_blueprint.route("/animals/<id>/edit", methods=['POST'])
 def update_animal(id):
 
     animal_name = request.form['animal_name']
@@ -94,7 +94,7 @@ def update_animal(id):
         animal_assigned = 1
     animal        = Animal(animal_name, vet,date_of_birth, animal_type, owner_contact, treatment_notes, animal_assigned, id)
 
-    animal_repository.save(animal)
+    animal_repository.update(animal)
     return redirect('/animals')
  
 
