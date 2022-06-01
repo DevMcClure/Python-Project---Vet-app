@@ -15,7 +15,7 @@ CREATE TABLE vets (
 CREATE TABLE animals (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     animal_name VARCHAR,
-    date_of_birth VARCHAR,
+    date_of_birth DATE,
     animal_type VARCHAR,
     owner_contact VARCHAR,
     treatment_notes VARCHAR,

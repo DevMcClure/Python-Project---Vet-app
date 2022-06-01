@@ -61,7 +61,7 @@ def delete(id):
 
 def update(animal):
     sql = "UPDATE animals SET(animal_name, vet_id, date_of_birth, animal_type, owner_contact, treatment_notes, animal_assigned) = (?, ?, ?, ?, ?, ?, ?) WHERE id = ?"
-    values = [animal.animal_name, animal.vet_id, animal.date_of_birth, animal.animal_type, animal.owner_contact, animal.treatment_notes, animal.animal_assigned, animal.id]
+    values = [animal.animal_name, animal.vet.id, animal.date_of_birth, animal.animal_type, animal.owner_contact, animal.treatment_notes, animal.animal_assigned, animal.id]
     run_sql(sql, values)
 
 
